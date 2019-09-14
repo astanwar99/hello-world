@@ -25,4 +25,21 @@ dishRouter.route('/')
     res.end('Deleting dishes');
 });
 
+dishRouter.route('/:dishId')
+.get((req, res, next) => {
+    res.end('Send details of dish: ' + req.params.dishId);
+})
+.post((req, res, next) => {
+    res.statusCode = 403;
+    res.end('POST operation not supported on /dishes/' + req.params.dishId);
+})
+.put((req, res, next) => {
+    res.write('Updating the dish: ' + req.params.dishId);
+    res.end('\nWill update the dish: ' + req.body.name + '\n' +
+        'With details: ' + req.body.description);
+})
+.delete((req, res, next) => {
+    res.end('Deleting the dish: ' + req.params.dishId);
+});
+
 module.exports = dishRouter;
