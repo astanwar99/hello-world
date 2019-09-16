@@ -12,22 +12,22 @@ dishRouter.route('/')
     next();
 })
 .get((req, res, next) => {
-    res.end('Send details of dishes');
+    res.end('Sending details of dishes');
 })
 .post((req, res, next) => {
     res.end('Add dish: ' + req.body.name + ' with details: ' + req.body.description);
 })
 .put((req, res, next) => {
     res.statusCode = 403;
-    res.end('PUT not supported.');
+    res.end('PUT not supported on /dishes');
 })
 .delete( (req, res, next) => {
-    res.end('Deleting dishes');
+    res.end('Deleting all dishes');
 });
 
 dishRouter.route('/:dishId')
 .get((req, res, next) => {
-    res.end('Send details of dish: ' + req.params.dishId);
+    res.end('Sending details of dish: ' + req.params.dishId);
 })
 .post((req, res, next) => {
     res.statusCode = 403;
