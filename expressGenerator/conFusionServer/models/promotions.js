@@ -1,12 +1,11 @@
 // {
-//     "name": "Peter Pan",
-//     "image": "images/alberto.png",
-//     "designation": "Chief Epicurious Officer",
-//     "abbr": "CEO",
-//     "description": "Our CEO, Peter, . . .",
+//     "name": "Weekend Grand Buffet",
+//     "image": "images/buffet.png",
+//     "label": "New",
+//     "price": "19.99",
+//     "description": "Featuring . . .",
 //     "featured": false
 // }
-
 const mongoose = require('mongoose');
 require('mongoose-currency').loadType(mongoose);
 const Currency = mongoose.Types.Currency;
@@ -27,13 +26,14 @@ const promotionSchema = new Schema({
         type: String,
         required: true
     },
-    designation: {
+    label: {
         type: String,
         default: ''
     },
-    abbr: {
-        type: String,
-        default: ''
+    price: {
+        type: Currency,
+        required: true,
+        min: 0
     },
     featured: {
         type: Boolean,

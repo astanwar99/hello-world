@@ -1,9 +1,9 @@
 // {
-//     "name": "Weekend Grand Buffet",
-//     "image": "images/buffet.png",
-//     "label": "New",
-//     "price": "19.99",
-//     "description": "Featuring . . .",
+//     "name": "Peter Pan",
+//     "image": "images/alberto.png",
+//     "designation": "Chief Epicurious Officer",
+//     "abbr": "CEO",
+//     "description": "Our CEO, Peter, . . .",
 //     "featured": false
 // }
 const mongoose = require('mongoose');
@@ -26,14 +26,13 @@ const leaderSchema = new Schema({
         type: String,
         required: true
     },
-    label: {
+    designation: {
         type: String,
         default: ''
     },
-    price: {
-        type: Currency,
-        required: true,
-        min: 0
+    abbr: {
+        type: String,
+        default: ''
     },
     featured: {
         type: Boolean,
